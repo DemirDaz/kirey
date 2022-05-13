@@ -1,14 +1,14 @@
 <div class="content-section implementation">
-  <div class="card">
-<p-table [value]="data">
+  
+<p-table id="myTable" [value]="data">
   <ng-template pTemplate="header">
       <tr>
           <th>Name</th>
           <th>Code</th>
           <th>Duration</th>
-          <th>NumberOfAccounts</th>
-          <th>DateOfCreation</th>
-          <th> </th>
+          <th>Number Of Accounts</th>
+          <th>Date Of Creation</th>
+          <th> Administration </th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-data>
@@ -20,15 +20,15 @@
           <td>{{data.NumberOfAccounts}}</td>
           <td>{{data.DateOfCreation}}</td>
           <td>
-            <button mat-fab *ngIf="moze" (click)="Update(data)">
-                <mat-icon>settings</mat-icon>
+            <button mat-fab *ngIf="moze" (click)="Update(data)" class="scale-up-center">
+              <i class="pi pi-spin pi-pencil" style="font-size: 2rem"></i>
               </button>
-              <button mat-fab *ngIf="moze" (click)="Delete(data.Name)">
-                <mat-icon>delete</mat-icon>
+              <button mat-fab *ngIf="moze" (click)="Delete(data.Name)" class="scale-up-center">
+                <i class="pi pi-trash" style="font-size: 2rem"></i>
               </button>
           </td>
       </tr>
   </ng-template>
 </p-table>
-</div>
+
 </div>

@@ -10,6 +10,7 @@ body {
     margin: 0;
     background: #f0f3f5;
     
+    
 }
 h1 {
     font-family: 'Raleway', sans-serif !important;
@@ -73,9 +74,7 @@ h1 {
     opacity: 1;
   }
 
-  .splash-content{
-    
-  }
+  
 .splash-content h1 {
     background-color: rgba(255, 255, 255, 0.192);
     border-radius: 0 20px 20px 0;
@@ -355,7 +354,10 @@ img {
     z-index: 0;
 }
 
-.splash .mat-icon {
+.desktop-hide{
+
+}
+.desktop-hide.mat-icon {
     font-size: 40px;
     color: #fff;
     float: right;
@@ -477,7 +479,12 @@ img.odd {
     background-color: #1a1a1a;
     color: #fff;
 }
+.footer{
+    margin-top: auto;
+    width: 100%;
+}
 .footer span {
+    
     margin: auto;
 }
 @media (max-width: 842px) {
@@ -492,18 +499,23 @@ img.odd {
     background-color: #1a1a1a !important;
 }
 @media (max-width: 768px) {
+    .splash{
+        background-size: 140% 180%;
+    }
     .nav {
         display: none !important;
    }
     .desktop-hide {
+        background-color: #1a1a1a !important;
+        width: 100% !important;
         display: block !important;
+        float:center;
+        padding-left: 10px;
    }
     .splash h1 {
         font-size: 36px;
    }
-   .splash h2 {
-    
-}
+  
     .features .row {
         flex-direction: column;
    }
