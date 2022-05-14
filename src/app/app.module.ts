@@ -16,8 +16,9 @@ import {Table, TableModule} from 'primeng/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MainComponent } from './main/main.component';
 import { CustomerComponent } from './customer/customer.component';
-
-
+import {InputTextModule} from 'primeng/inputtext';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,16 @@ import { CustomerComponent } from './customer/customer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    CalendarModule,
+    FormsModule,
+    ReactiveFormsModule,
     DialogModule,
     ButtonModule,
     HttpClientModule,
     MatButtonModule,
     MatListModule,
     MatIconModule,
+    InputTextModule,
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,

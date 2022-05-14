@@ -5,7 +5,95 @@
 <p-button (click)="gfg()" label="New Record" class="newBtn"></p-button>
 <p-dialog header="New Record" [(visible)]="visibility">
     
-<p>Angular PrimeNG Dialog Component</p>
+
+<div class="register-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name</label>
+      
+      <input
+        type="text"
+        formControlName="fullname"
+        class="form-control"
+        pInputText
+        [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+      />
+      
+      <div *ngIf=" f['fullname'].errors" class="invalid-feedback">
+        <div *ngIf="f['fullname'].errors['pattern']"><h4>Letters only allowed!</h4></div>
+      </div>
+
+      <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+        <div *ngIf="f['fullname'].errors['required']"><h4>Fullname is required</h4></div>
+        <div *ngIf="f['fullname'].errors['pattern']"><h4>Letters only allowed!</h4></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Code</label>
+      <input
+        type="text"
+        formControlName="code"
+        class="form-control"
+        pInputText
+        [ngClass]="{ 'is-invalid': submitted && f['code'].errors }"
+      />
+      <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
+        <div *ngIf="f['code'].errors['required']"><h4>Code is required</h4></div>
+        <div *ngIf="f['code'].errors['minlength']">
+          <h4>Code must be at least 6 characters</h4>
+        </div>
+        <div *ngIf="f['code'].errors['maxlength']">
+          <h4>Code must not exceed 20 characters</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="timeonly">Duration</label>
+      <p-calendar inputid="timeonly" [showTime]="true" hourFormat="24" placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum" [showSeconds]="true" [timeOnly]="true"></p-calendar>
+      <div *ngIf="submitted && f['timeonly'].errors" class="invalid-feedback">
+        <div *ngIf="f['timeonly'].errors['required']"><h4>Duration is required.</h4></div>
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Number of Accounts</label>
+      <input
+        type="number"
+        formControlName="number"
+        class="form-control"
+        pInputText
+        min="0"
+        [ngClass]="{ 'is-invalid': submitted && f['number'].errors }"
+      />
+      <div *ngIf="submitted && f['number'].errors" class="invalid-feedback">
+        <div *ngIf="f['number'].errors['required']"><h4>Number is required.</h4></div>
+        <div *ngIf="f['number'].errors['number']"><h4>Number can not be zero.</h4></div>
+      </div>
+    </div>
+    
+    
+    <div class="form-group form-check">
+      
+     
+      <div *ngIf="submitted" class="invalid-feedback">
+        <h4>Fix errors!</h4>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" pButton class="btn btn-primary addBtn">Add New</button>
+      <button
+        type="button"
+        pButton 
+        (click)="onReset()"
+        class="btn btn-warning float-right rstBtn"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
   
 </p-dialog>
 
