@@ -1,134 +1,181 @@
 <div class="content-section implementation">
- 
+
   <h2>Data Management</h2>
 
-<p-button (click)="gfg()" label="New Record" class="newBtn"></p-button>
-<p-dialog header="New Record" [(visible)]="visibility">
-    
+  <p-button (click)="gfg()" label="New Record" class="newBtn"></p-button>
+  <p-dialog header="New Record" [(visible)]="visibility">
 
-<div class="register-form">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label>Name</label>
-      
-      <input
-        type="text"
-        formControlName="fullname"
-        class="form-control"
-        pInputText
-        name="Name"
-        [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
-      />
-      
-      <div *ngIf=" f['fullname'].errors" class="invalid-feedback">
-        <div *ngIf="f['fullname'].errors['pattern']"><h4>Letters only allowed!</h4></div>
-      </div>
 
-      <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
-        <div *ngIf="f['fullname'].errors['required']"><h4>Fullname is required</h4></div>
-        <div *ngIf="f['fullname'].errors['pattern']"><h4>Letters only allowed!</h4></div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Code</label>
-      <input
-        type="text"
-        formControlName="code"
-        class="form-control"
-        pInputText
-        name="Code"
-        [ngClass]="{ 'is-invalid': submitted && f['code'].errors }"
-      />
-      <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
-        <div *ngIf="f['code'].errors['required']"><h4>Code is required</h4></div>
-        <div *ngIf="f['code'].errors['minlength']">
-          <h4>Code must be at least 6 characters</h4>
+    <div class="register-form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Name</label>
+
+          <input type="text" formControlName="fullname" class="form-control" pInputText name="Name"
+            [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }" />
+
+          <div *ngIf=" f['fullname'].errors" class="invalid-feedback">
+            <div *ngIf="f['fullname'].errors['pattern']">
+              <h4>Letters only allowed!</h4>
+            </div>
+          </div>
+
+          <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+            <div *ngIf="f['fullname'].errors['required']">
+              <h4>Fullname is required</h4>
+            </div>
+            <div *ngIf="f['fullname'].errors['pattern']">
+              <h4>Letters only allowed!</h4>
+            </div>
+          </div>
         </div>
-        <div *ngIf="f['code'].errors['maxlength']">
-          <h4>Code must not exceed 20 characters</h4>
+        <div class="form-group">
+          <label>Code</label>
+          <input type="text" formControlName="code" class="form-control" pInputText name="Code"
+            [ngClass]="{ 'is-invalid': submitted && f['code'].errors }" />
+          <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
+            <div *ngIf="f['code'].errors['required']">
+              <h4>Code is required</h4>
+            </div>
+            <div *ngIf="f['code'].errors['minlength']">
+              <h4>Code must be at least 6 characters</h4>
+            </div>
+            <div *ngIf="f['code'].errors['maxlength']">
+              <h4>Code must not exceed 20 characters</h4>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label for="timeonly">Duration</label>
-      <p-calendar formControlName="duration" name="Duration" inputid="timeonly" [showTime]="true" hourFormat="24" placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum" [showSeconds]="true" [timeOnly]="true"></p-calendar>
-      <!--<div *ngIf="submitted && f['timeonly'].errors" class="invalid-feedback">
+        <div class="form-group">
+          <label for="timeonly">Duration</label>
+          <p-calendar formControlName="duration" name="Duration" inputid="timeonly" [showTime]="true" hourFormat="24"
+            placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum" [showSeconds]="true"
+            [timeOnly]="true"></p-calendar>
+          <!--<div *ngIf="submitted && f['timeonly'].errors" class="invalid-feedback">
         <div *ngIf="f['timeonly'].errors['required']"><h4>Duration is required.</h4></div>
         
       </div> -->
-    </div>
-    
-    <div class="form-group">
-      <label>Number of Accounts</label>
-      <input
-        type="number"
-        formControlName="number"
-        class="form-control"
-        pInputText
-        min="0"
-        name="NumberOfAccounts"
-        [ngClass]="{ 'is-invalid': submitted && f['number'].errors }"
-      />
-      <div *ngIf="submitted && f['number'].errors" class="invalid-feedback">
-        <div *ngIf="f['number'].errors['required']"><h4>Number is required.</h4></div>
-        <div *ngIf="f['number'].errors['number']"><h4>Number can not be zero.</h4></div>
-      </div>
-    </div>
-    
-    
-    <div class="form-group form-check">
-      
-     
-      <!--<div *ngIf="submitted" class="invalid-feedback">
+        </div>
+
+        <div class="form-group">
+          <label>Number of Accounts</label>
+          <input type="number" formControlName="number" class="form-control" pInputText min="0" name="NumberOfAccounts"
+            [ngClass]="{ 'is-invalid': submitted && f['number'].errors }" />
+          <div *ngIf="submitted && f['number'].errors" class="invalid-feedback">
+            <div *ngIf="f['number'].errors['required']">
+              <h4>Number is required.</h4>
+            </div>
+            <div *ngIf="f['number'].errors['number']">
+              <h4>Number can not be zero.</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group form-check">
+
+
+          <!--<div *ngIf="submitted" class="invalid-feedback">
         <h4>Fix errors!</h4>
       </div> -->
+        </div>
+        <div class="form-group">
+          <button type="submit" pButton class="btn btn-primary addBtn">Add New</button>
+          <button type="button" pButton (click)="onReset()" class="btn btn-warning float-right rstBtn">
+            Reset
+          </button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <button type="submit" pButton class="btn btn-primary addBtn">Add New</button>
-      <button
-        type="button"
-        pButton 
-        (click)="onReset()"
-        class="btn btn-warning float-right rstBtn"
-      >
-        Reset
-      </button>
-    </div>
-  </form>
-</div>
-  
-</p-dialog>
 
-<p-table [value]="data" styleClass="ui-corner-all">
-  <ng-template pTemplate="header">
+  </p-dialog>
+
+  <p-table [value]="data" dataKey="id" editMode="row">
+    <ng-template pTemplate="header">
       <tr>
-          <th>Name</th>
-          <th>Code</th>
-          <th>Duration</th>
-          <th>Number Of Accounts</th>
-          <th>Date Of Creation</th>
-          <th> Administration </th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Duration</th>
+        <th>Number Of Accounts</th>
+        <th>Date Of Creation</th>
+        <th> Administration </th>
       </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-data>
-      <tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-editing="editing" let-ri="rowIndex">
+      <tr [pEditableRow]="data">
 
-          <td>{{data.Name}}</td>
-          <td>{{data.Code}}</td>
-          <td>{{data.Duration}}</td>
-          <td>{{data.NumberOfAccounts}}</td>
-          <td>{{data.DateOfCreation}}</td>
-          <td>
-            <button mat-fab *ngIf="moze" (click)="Update(data)" class="scale-up-center">
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="data.Name" required>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{data.Name}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="text" [(ngModel)]="data.Code" required>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{data.Code}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-calendar formControlName="duration" name="Duration" inputid="timeonly" [(ngModel)]="data.Duration"
+                [showTime]="true" hourFormat="24" placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum"
+                [showSeconds]="true" [timeOnly]="true"></p-calendar>
+
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{data.Duration}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input pInputText type="number" min="0" [(ngModel)]="data.NumberOfAccounts" required>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{data.NumberOfAccounts}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+
+
+        <td>{{data.DateOfCreation}}</td>
+        <td>
+          <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+            (click)="onRowEditInit(data)" class=" scale-up-center p-button-rounded p-button-text"></button>
+          <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+            (click)="onRowEditSave(data)"
+            class=" scale-up-center p-button-rounded p-button-text p-button-success p-mr-2"></button>
+          <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+            (click)="onRowEditCancel(data, ri)"
+            class=" scale-up-center p-button-rounded p-button-text p-button-danger"></button>
+          <!-- <button mat-fab *ngIf="moze" (click)="Update(data)" class="scale-up-center">
               <i class="pi pi-spin pi-pencil" style="font-size: 2rem"></i>
-              </button>
-              <button mat-fab *ngIf="moze" (click)="Delete(data.id)" class="scale-up-center">
-                <i class="pi pi-trash" style="font-size: 2rem"></i>
-              </button>
-          </td>
+              </button>  mat-fab-->
+          <button pButton pRipple type="button" icon="pi pi-trash" (click)="Delete(data.id)"
+            class="scale-up-center p-button-rounded p-button-text">
+
+          </button>
+        </td>
       </tr>
-  </ng-template>
-</p-table>
+    </ng-template>
+  </p-table>
+
+  <h5> </h5>
+  <button type="button" pButton (click)="showViaService()" label="Show Message"></button>
+  <p-messages></p-messages>
+
+
+
 
 </div>

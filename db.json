@@ -1,22 +1,11 @@
 {
   "data": [
     {
-      "id": "1",
-      "Name": "Demir",
-      "Code": "ngInit",
-      "Duration": "2:52",
+      "id": 1,
+      "Name": "Test",
+      "Code": "dasdaad",
+      "Duration": "01:02:01",
       "NumberOfAccounts": 3,
-      "DateOfCreation": "25-05-2022"
-    },
-    {
-      "id": "Bf5JuXZ"
-    },
-    {
-      "id": "7ve_qDY",
-      "Name": "test",
-      "Code": "sdasas",
-      "Duration": "2022-05-13T23:02:01.964Z",
-      "NumberOfAccounts": 2,
       "DateOfCreation": "14-05-2022"
     }
   ]

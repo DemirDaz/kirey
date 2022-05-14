@@ -1,34 +1,35 @@
 <mat-drawer-container>
-    <mat-drawer #drawer mode="side">
-      <mat-icon aria-hidden="false" class="close" (click)="drawer.toggle()">close</mat-icon>
-      <br>
-      <h1>Demir Dazdarevic <br> Assesment</h1>
-      <mat-list role="list">
+  <mat-drawer #drawer mode="side">
+    <mat-icon aria-hidden="false" class="close" (click)="drawer.toggle()">close</mat-icon>
+    <br>
+    <h1>Demir Dazdarevic <br> Assesment</h1>
+    <mat-list role="list">
       <mat-list-item role="listitem"><a mat-button routerLink="/home" (click)="drawer.toggle()">Home</a></mat-list-item>
-      <mat-list-item role="listitem"><a mat-button routerLink="/customer" (click)="drawer.toggle()">Customer</a></mat-list-item>
-      
-        
-      </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>
-<mat-toolbar class="nav fill">
-  
-  <mat-list role="list">
-    <mat-list-item role="listitem"><a mat-button routerLink="/home">Home</a></mat-list-item>
-    <mat-list-item role="listitem"><a mat-button routerLink="/customer">Customer</a></mat-list-item>
-    
+      <mat-list-item role="listitem"><a mat-button routerLink="/customer" (click)="drawer.toggle()">Customer</a>
+      </mat-list-item>
 
-    <mat-list-item role="listitem" class="logo"><img src="assets/logokgbianco.svg"/></mat-list-item>
-  </mat-list>
-</mat-toolbar>
-<mat-icon aria-hidden="false" aria-label="Example home icon" class="desktop-hide" (click)="drawer.toggle()">
-  reorder
-</mat-icon>
-<router-outlet></router-outlet>
-<div class="footer" color="primary">
-  <mat-toolbar color="primary">
-    <span>Demir Dazdarevic 2022</span>
-  </mat-toolbar>
-</div>
-</mat-drawer-content>
+
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar class="nav fill">
+
+      <mat-list role="list">
+        <mat-list-item role="listitem"><a mat-button routerLink="/home">Home</a></mat-list-item>
+        <mat-list-item role="listitem"><a mat-button routerLink="/customer">Customer</a></mat-list-item>
+
+
+        <mat-list-item role="listitem" class="logo"><img src="assets/logokgbianco.svg" /></mat-list-item>
+      </mat-list>
+    </mat-toolbar>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="desktop-hide" (click)="drawer.toggle()">
+      reorder
+    </mat-icon>
+    <router-outlet></router-outlet>
+    <div class="footer" color="primary">
+      <mat-toolbar color="primary">
+        <span>Demir Dazdarevic 2022</span>
+      </mat-toolbar>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

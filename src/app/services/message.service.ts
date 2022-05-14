@@ -7,14 +7,14 @@ import { Subject } from 'rxjs'
 })
 export class MessageService {
 
-  subject =  new Subject()
+  subject = new Subject()
   messages: string[] = [];
 
   constructor() { }
 
-  sendMessage(item:any) {
+  sendMessage(item: any) {
     console.log(item)
-  this.subject.next(item) //Trigger dogadjaja
+    this.subject.next(item) //Trigger dogadjaja
   }
 
   add(message: string) {
