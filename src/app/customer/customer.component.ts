@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Data } from '../model/data';
 import { DataService } from '../services/data.service';
-
+import { PrimeNGConfig } from "primeng/api";
 
 @Component({
   selector: 'app-customer',
@@ -13,11 +13,19 @@ export class CustomerComponent implements OnInit {
 
   data:Data[] = [];
   moze=false;
+  visibility: boolean = false;
 
-  constructor(private dat:DataService) { }
+  constructor(private dat:DataService,private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
     this.getData();
+  }
+  
+  
+  
+  gfg() {
+    this.visibility = true;
   }
 
   getData() {

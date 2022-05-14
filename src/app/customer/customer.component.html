@@ -1,6 +1,15 @@
 <div class="content-section implementation">
+ 
+  <h2>Data Management</h2>
+
+<p-button (click)="gfg()" label="New Record" class="newBtn"></p-button>
+<p-dialog header="New Record" [(visible)]="visibility">
+    
+<p>Angular PrimeNG Dialog Component</p>
   
-<p-table id="myTable" [value]="data">
+</p-dialog>
+
+<p-table [value]="data" styleClass="ui-corner-all">
   <ng-template pTemplate="header">
       <tr>
           <th>Name</th>

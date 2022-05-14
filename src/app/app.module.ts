@@ -10,7 +10,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { DialogModule } from "primeng/dialog";
+import { ButtonModule } from "primeng/button"
 import {Table, TableModule} from 'primeng/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MainComponent } from './main/main.component';
@@ -30,6 +31,8 @@ import { CustomerComponent } from './customer/customer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    DialogModule,
+    ButtonModule,
     HttpClientModule,
     MatButtonModule,
     MatListModule,

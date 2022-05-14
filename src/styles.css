@@ -444,6 +444,65 @@ img.even {
 img.odd {
     border-radius: 20px 0 0 20px;
 }
+/* Customer CSS */
+.implementation{
+   
+    width:90%;
+    margin:auto;
+    padding-top:10%;
+    min-height: 93vh;
+    height: 100%;
+    
+
+}
+
+
+.newBtn button{
+  margin-bottom: 10px;
+}
+
+
+tr:first-child th:first-child { border-top-left-radius: 10px; }
+tr:first-child th:last-child { border-top-right-radius: 10px; }
+tr td{ border: none !important; }
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+/*
+
+*/
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent{
+    background-color:orange;
+    margin:10px;
+}
+.scale-up-center:hover {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+  }
+
+
+
 .contactus {
     background-image: url('https://unsplash.com/photos/TamMbr4okv4/download?force=true');
     background-position: center;
