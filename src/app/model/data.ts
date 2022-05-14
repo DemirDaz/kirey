@@ -2,7 +2,7 @@ import { Time } from "@angular/common";
 import { DatePipe } from '@angular/common'
 
 export class Data {
-    
+    id:string;
     Name: string;
     Code: string;
     Duration: Time;
@@ -13,7 +13,7 @@ export class Data {
         Code: string,
         Duration: Time,
         NumberOfAccounts : number) {
-            
+            this.id = '';
             this.Name = Name;
             this.Code = Code;
             this.Duration = Duration;

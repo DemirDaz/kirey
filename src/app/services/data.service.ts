@@ -11,10 +11,7 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class DataService {
-  deleteRecord(Name: string) {
-    throw new Error('Method not implemented.');
-  }
-
+ 
 
   constructor(private http: HttpClient,private msg: MessageService) { }
   
@@ -30,6 +27,25 @@ export class DataService {
       tap(_=> this.log('Preuzeti podaci')),
       catchError(this.handleError<Data[]>('getKonobari',[]))
       );
+  }
+
+  createRecord(data:Data):Observable<Data> {
+    const headers = { 'content-type': 'application/json'};
+    return this.http.post<Data>(URL,JSON.stringify(data),{'headers':headers}).pipe(
+      tap(_=> alert('Record created!')),
+        catchError(this.handleErrorTwo))
+  }
+  
+  updateRecord(data:Data){
+    return this.http.put<Data>(`${URL}?Name=${data.Name}`,JSON.stringify(data)).pipe(
+      tap(_=> alert('Record updated!')),
+        catchError(this.handleErrorTwo))
+  }
+  
+  deleteRecord(name:string) {
+    return this.http.delete<Data>(`${URL}/${name}`).pipe(
+      tap(_=> alert('Record deleted!')),
+        catchError(this.handleErrorTwo))
   }
 /*
   getRadnike(): Observable<Konobar[]> {

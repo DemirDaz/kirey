@@ -6,6 +6,7 @@ import { DataService } from '../services/data.service';
 import { PrimeNGConfig } from "primeng/api";
 
 
+
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -41,15 +42,11 @@ export class CustomerComponent implements OnInit {
           ]
         ],
         number: ['', [Validators.required, Validators.min(1)]],
-        password: [
+        duration: [
           '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40)
-          ]
+          [Validators.required]
         ],
-        timeonly: ['',[Validators.required]],
+        
       },
       /*
       {
@@ -62,13 +59,28 @@ export class CustomerComponent implements OnInit {
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
   }
+  public findInvalidControls() {
+    const invalid = [];
+    const controls = this.form.controls;
+    for (const name in controls) {
+        if (controls[name].invalid) {
+            invalid.push(name);
+        }
+    }
+    console.log(invalid);
+}
 
   onSubmit(): void {
     this.submitted = true;
     if (this.form.invalid) {
+      console.log(this.form.errors);
       return;
     }
+    else{
+    this.createData(); }
+
     console.log(JSON.stringify(this.form.value, null, 2));
+    
   }
   onReset(): void {
     this.submitted = false;
@@ -87,6 +99,21 @@ export class CustomerComponent implements OnInit {
     
     }
 
+  createData() {
+    let newRecord = new Data(this.f['fullname'].value,this.f['code'].value,this.f['duration'].value,this.f['number'].value)
+    this.dat.createRecord(newRecord).subscribe((user: Data) => {console.log(JSON.stringify(user.Name)+'is added to db.')
+  },err => console.log(JSON.stringify(err)))
+  location.reload();
+   
+   //location.reload();
+  }
+
+  Delete(id:string){
+    this.dat.deleteRecord(id).subscribe(response =>
+       {console.log(response);},err => console.log(err));
+       location.reload(); 
+   }
+
    
     Update(data:Data){
      /* this.registruje=true;
@@ -101,10 +128,6 @@ export class CustomerComponent implements OnInit {
       this.registruje=false;
       location.reload(); */
     }
-    Delete(Name:string){
-     /* this.dat.deleteRecord(Name).subscribe(response =>
-        {console.log(response);},err => console.log(err));
-        location.reload(); */
-    }
+   
 
 }

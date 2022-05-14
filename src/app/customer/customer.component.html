@@ -16,6 +16,7 @@
         formControlName="fullname"
         class="form-control"
         pInputText
+        name="Name"
         [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
       />
       
@@ -35,6 +36,7 @@
         formControlName="code"
         class="form-control"
         pInputText
+        name="Code"
         [ngClass]="{ 'is-invalid': submitted && f['code'].errors }"
       />
       <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
@@ -50,11 +52,11 @@
 
     <div class="form-group">
       <label for="timeonly">Duration</label>
-      <p-calendar inputid="timeonly" [showTime]="true" hourFormat="24" placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum" [showSeconds]="true" [timeOnly]="true"></p-calendar>
-      <div *ngIf="submitted && f['timeonly'].errors" class="invalid-feedback">
+      <p-calendar formControlName="duration" name="Duration" inputid="timeonly" [showTime]="true" hourFormat="24" placeholder="hh:mm:ss" aria-valuenow="00:00:01" [defaultDate]="datum" [showSeconds]="true" [timeOnly]="true"></p-calendar>
+      <!--<div *ngIf="submitted && f['timeonly'].errors" class="invalid-feedback">
         <div *ngIf="f['timeonly'].errors['required']"><h4>Duration is required.</h4></div>
         
-      </div>
+      </div> -->
     </div>
     
     <div class="form-group">
@@ -65,6 +67,7 @@
         class="form-control"
         pInputText
         min="0"
+        name="NumberOfAccounts"
         [ngClass]="{ 'is-invalid': submitted && f['number'].errors }"
       />
       <div *ngIf="submitted && f['number'].errors" class="invalid-feedback">
@@ -77,9 +80,9 @@
     <div class="form-group form-check">
       
      
-      <div *ngIf="submitted" class="invalid-feedback">
+      <!--<div *ngIf="submitted" class="invalid-feedback">
         <h4>Fix errors!</h4>
-      </div>
+      </div> -->
     </div>
     <div class="form-group">
       <button type="submit" pButton class="btn btn-primary addBtn">Add New</button>
@@ -120,7 +123,7 @@
             <button mat-fab *ngIf="moze" (click)="Update(data)" class="scale-up-center">
               <i class="pi pi-spin pi-pencil" style="font-size: 2rem"></i>
               </button>
-              <button mat-fab *ngIf="moze" (click)="Delete(data.Name)" class="scale-up-center">
+              <button mat-fab *ngIf="moze" (click)="Delete(data.id)" class="scale-up-center">
                 <i class="pi pi-trash" style="font-size: 2rem"></i>
               </button>
           </td>
